@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N&N AI Solutions - Transforming Businesses with AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0ea5e9;
+            --accent: #8b5cf6;
+            --accent-dark: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        body.rtl {
+            direction: rtl;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            margin-right: 12px;
+        }
+
+        .rtl .logo-icon {
+            margin-right: 0;
+            margin-left: 12px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .logo p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .rtl .nav-links li {
+            margin-left: 0;
+            margin-right: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .rtl .nav-links a::after {
+            left: auto;
+            right: 0;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: var(--accent-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,100 100,0 100,100" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .rtl .section-title h2::after {
+            left: auto;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.3rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: 12px;
+            z-index: -1;
+        }
+
+        .rtl .about-image::before {
+            right: auto;
+            left: -20px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+        }
+        
+        /* Courses Section */
+        .courses {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-header {
+            padding: 25px 25px 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .course-title {
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .course-duration, .course-price {
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        
+        .course-duration i, .course-price i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+
+        .rtl .course-duration i, .rtl .course-price i {
+            margin-right: 0;
+            margin-left: 8px;
+        }
+        
+        .course-price {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .course-body {
+            padding: 20px 25px;
+        }
+        
+        .course-description {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .course-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--light);
+            color: var(--primary);
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .course-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 25px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .rtl .contact-info h3::after {
+            left: auto;
+            right: 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .rtl .contact-icon {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form-container h3 {
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        
+        .form-link {
+            display: block;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--dark);
+        }
+        
+        .form-link a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .form-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .rtl .footer-column h3::after {
+            left: auto;
+            right: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            margin-left: 20px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 2px solid var(--light-gray);
+        }
+
+        .rtl .language-switcher {
+            margin-left: 0;
+            margin-right: 20px;
+        }
+        
+        .lang-btn {
+            background: white;
+            color: var(--gray);
+            padding: 8px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                max-width: 600px;
+                height: 350px;
+                margin: 0 auto;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .hero {
+                padding: 180px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .services, .about, .courses, .contact {
+                padding: 70px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>N&N <span>AI Solutions</span></h1>
+                        <p>Transforming Businesses with AI</p>
+                    </div>
+                </a>
+                <div style="display: flex; align-items: center;">
+                    <ul class="nav-links">
+                        <li><a href="#home" data-key="nav.home">Home</a></li>
+                        <li><a href="#about" data-key="nav.about">About</a></li>
+                        <li><a href="#courses" data-key="nav.courses">Courses</a></li>
+                        <li><a href="#contact" data-key="nav.contact">Contact</a></li>
+                    </ul>
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="ar">AR</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-key="hero.title">Transforming Businesses with AI Solutions</h1>
+                <p data-key="hero.subtitle">Bridging cutting-edge AI research with practical business applications</p>
+                <div class="hero-btns">
+                    <a href="#courses" class="btn" data-key="hero.btn1">Explore Courses</a>
+                    <a href="#contact" class="btn btn-accent" data-key="hero.btn2">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-key="about.title">About Us</h2>
+                <p data-key="about.subtitle">Innovative AI solutions for the modern business</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 data-key="about.heading">About N&N AI Solutions</h2>
+                    <p data-key="about.text1">We are a team of passionate AI and software experts dedicated to helping businesses leverage the power of artificial intelligence and modern technology.</p>
+                    <p data-key="about.text2">Our mission is to bridge the gap between cutting-edge AI research and practical business applications, delivering solutions that drive real value and innovation.</p>
+                    <p data-key="about.text3">With expertise in machine learning, natural language processing, and generative AI, we help businesses automate processes, enhance customer experiences, and unlock new opportunities.</p>
+                    <a href="#contact" class="btn" data-key="about.btn">Contact Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1677442135722-5f3e7d46b0b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AI Technology">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-key="courses.title">Our Courses</h2>
+                <p data-key="courses.subtitle">Professional training programs for developers</p>
+            </div>
+            
+            <div class="courses-grid" id="courses-container">
+                <!-- Courses will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 data-key="contact.title">Get in Touch</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 data-key="contact.info">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4 data-key="contact.phone">Phone</h4>
+                            <p>+91 9390493447</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4 data-key="contact.email">Email</h4>
+                            <p>nn.ai.solution1@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4 data-key="contact.location">Location</h4>
+                            <p>Muscat, Oman</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4 data-key="contact.hours">Working Hours</h4>
+                            <p data-key="contact.hours_detail">Sunday - Thursday: 8:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h3 data-key="contact.form_title">Send us a Message</h3>
+                    <p data-key="contact.form_subtitle">We'll respond to your inquiry as soon as possible</p>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="https://forms.gle/SRoaptpv4G47yS8Z7" target="_blank" class="btn btn-accent" data-key="contact.form_btn">Message Us via Google Form</a>
+                    </div>
+                    <p class="form-link">
+                        <span data-key="contact.form_link">Direct link:</span> 
+                        <a href="https://forms.gle/SRoaptpv4G47yS8Z7" target="_blank">https://forms.gle/SRoaptpv4G47yS8Z7</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>N&N AI Solutions</h3>
+                    <p data-key="footer.mission">Bridging cutting-edge AI research with practical business applications to drive innovation and value.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 data-key="footer.quick_links">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" data-key="nav.home">Home</a></li>
+                        <li><a href="#about" data-key="nav.about">About Us</a></li>
+                        <li><a href="#courses" data-key="nav.courses">Courses</a></li>
+                        <li><a href="#contact" data-key="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 data-key="footer.courses">Our Courses</h3>
+                    <ul class="footer-links" id="footer-courses">
+                        <!-- Courses will be added here -->
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 data-key="footer.newsletter">Newsletter</h3>
+                    <p data-key="footer.newsletter_text">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form style="margin-top: 20px;">
+                        <input type="email" placeholder="Your Email" style="width: 100%; padding: 12px; border-radius: 30px; border: none; margin-bottom: 10px;">
+                        <button class="btn" style="width: 100%;" data-key="footer.subscribe">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 N&N AI Solutions. <span data-key="footer.rights">All Rights Reserved</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translation data
+        const translations = {
+            en: {
+                "nav.home": "Home",
+                "nav.about": "About",
+                "nav.courses": "Courses",
+                "nav.contact": "Contact",
+                "hero.title": "Transforming Businesses with AI Solutions",
+                "hero.subtitle": "Bridging cutting-edge AI research with practical business applications",
+                "hero.btn1": "Explore Courses",
+                "hero.btn2": "Get in Touch",
+                "about.title": "About Us",
+                "about.subtitle": "Innovative AI solutions for the modern business",
+                "about.heading": "About N&N AI Solutions",
+                "about.text1": "We are a team of passionate AI and software experts dedicated to helping businesses leverage the power of artificial intelligence and modern technology.",
+                "about.text2": "Our mission is to bridge the gap between cutting-edge AI research and practical business applications, delivering solutions that drive real value and innovation.",
+                "about.text3": "With expertise in machine learning, natural language processing, and generative AI, we help businesses automate processes, enhance customer experiences, and unlock new opportunities.",
+                "about.btn": "Contact Us",
+                "courses.title": "Our Courses",
+                "courses.subtitle": "Professional training programs for developers",
+                "contact.title": "Get in Touch",
+                "contact.info": "Contact Information",
+                "contact.phone": "Phone",
+                "contact.email": "Email",
+                "contact.location": "Location",
+                "contact.hours": "Working Hours",
+                "contact.hours_detail": "Sunday - Thursday: 8:00 AM - 4:00 PM",
+                "contact.form_title": "Send us a Message",
+                "contact.form_subtitle": "We'll respond to your inquiry as soon as possible",
+                "contact.form_btn": "Message Us via Google Form",
+                "contact.form_link": "Direct link:",
+                "footer.mission": "Bridging cutting-edge AI research with practical business applications to drive innovation and value.",
+                "footer.quick_links": "Quick Links",
+                "footer.courses": "Our Courses",
+                "footer.newsletter": "Newsletter",
+                "footer.newsletter_text": "Subscribe to our newsletter for the latest updates and offers.",
+                "footer.subscribe": "Subscribe",
+                "footer.rights": "All Rights Reserved"
+            },
+            ar: {
+                "nav.home": "الرئيسية",
+                "nav.about": "من نحن",
+                "nav.courses": "الدورات",
+                "nav.contact": "اتصل بنا",
+                "hero.title": "تحويل الأعمال باستخدام حلول الذكاء الاصطناعي",
+                "hero.subtitle": "ربط أحدث الأبحاث في الذكاء الاصطناعي بالتطبيقات العملية للأعمال",
+                "hero.btn1": "استكشاف الدورات",
+                "hero.btn2": "اتصل بنا",
+                "about.title": "من نحن",
+                "about.subtitle": "حلول ذكاء اصطناعي مبتكرة للأعمال الحديثة",
+                "about.heading": "حول حلول N&N للذكاء الاصطناعي",
+                "about.text1": "نحن فريق من خبراء الذكاء الاصطناعي والبرمجيات المتفانين في مساعدة الشركات على الاستفادة من قوة الذكاء الاصطناعي والتكنولوجيا الحديثة.",
+                "about.text2": "مهمتنا هي سد الفجوة بين أحدث الأبحاث في الذكاء الاصطناعي والتطبيقات العملية للأعمال، وتقديم حلول تحقق قيمة حقيقية وابتكارًا.",
+                "about.text3": "مع خبرتنا في التعلم الآلي، ومعالجة اللغة الطبيعية، والذكاء الاصطناعي التوليدي، نساعد الشركات على أتمتة العمليات، وتحسين تجارب العملاء، واكتشاف فرص جديدة.",
+                "about.btn": "اتصل بنا",
+                "courses.title": "دوراتنا",
+                "courses.subtitle": "برامج تدريبية احترافية للمطورين",
+                "contact.title": "اتصل بنا",
+                "contact.info": "معلومات الاتصال",
+                "contact.phone": "الهاتف",
+                "contact.email": "البريد الإلكتروني",
+                "contact.location": "الموقع",
+                "contact.hours": "ساعات العمل",
+                "contact.hours_detail": "الأحد - الخميس: 8:00 صباحًا - 4:00 مساءً",
+                "contact.form_title": "أرسل لنا رسالة",
+                "contact.form_subtitle": "سوف نرد على استفسارك في أقرب وقت ممكن",
+                "contact.form_btn": "راسلنا عبر نموذج جوجل",
+                "contact.form_link": "رابط مباشر:",
+                "footer.mission": "ربط أحدث الأبحاث في الذكاء الاصطناعي بالتطبيقات العملية للأعمال لدفع الابتكار والقيمة.",
+                "footer.quick_links": "روابط سريعة",
+                "footer.courses": "دوراتنا",
+                "footer.newsletter": "النشرة الإخبارية",
+                "footer.newsletter_text": "اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات والعروض.",
+                "footer.subscribe": "اشتراك",
+                "footer.rights": "جميع الحقوق محفوظة"
+            }
+        };
+
+        // Course data
+        const courses = {
+            en: [
+                {
+                    name: "JavaScript",
+                    duration: "8 Weeks",
+                    price: "140 OMR",
+                    description: "Add interactivity to your websites by learning JavaScript fundamentals"
+                },
+                {
+                    name: "React JS",
+                    duration: "10 Weeks",
+                    price: "180 OMR",
+                    description: "Build fast, modern, and responsive web apps using React's component-based architecture."
+                },
+                {
+                    name: "Django",
+                    duration: "6 Weeks",
+                    price: "120 OMR",
+                    description: "Develop secure and scalable full-stack web applications using Python and Django framework."
+                },
+                {
+                    name: "MySQL",
+                    duration: "3 Weeks",
+                    price: "80 OMR",
+                    description: "Learn how to store, retrieve, and manage data using SQL in real-world database systems."
+                },
+                {
+                    name: "C Language",
+                    duration: "4 Weeks",
+                    price: "50 OMR",
+                    description: "Includes basic programming concepts of C language"
+                },
+                {
+                    name: "HTML & CSS",
+                    duration: "6 Weeks",
+                    price: "80 OMR",
+                    description: "Covers HTML, CSS with project-based learning."
+                },
+                {
+                    name: "C++",
+                    duration: "6 Weeks",
+                    price: "70 OMR",
+                    description: "Introduction to C++, Functions and OOPS concepts."
+                },
+                {
+                    name: "JAVA",
+                    duration: "6 Weeks",
+                    price: "100 OMR",
+                    description: "Build scalable applications with Java, focusing on OOP, data structures, and project-based learning."
+                },
+                {
+                    name: "PYTHON",
+                    duration: "6 Weeks",
+                    price: "80 OMR",
+                    description: "Start coding with Python—ideal for beginners and basic data handling."
+                },
+                {
+                    name: "ADV PYTHON",
+                    duration: "8 Weeks",
+                    price: "120 OMR",
+                    description: "Deep-dive into Python with real-world projects and advanced concepts."
+                }
+            ],
+            ar: [
+                {
+                    name: "جافا سكريبت",
+                    duration: "8 أسابيع",
+                    price: "140 ريال عماني",
+                    description: "أضف التفاعل إلى مواقع الويب الخاصة بك من خلال تعلم أساسيات جافا سكريبت"
+                },
+                {
+                    name: "رياكت جي إس",
+                    duration: "10 أسابيع",
+                    price: "180 ريال عماني",
+                    description: "بناء تطبيقات ويب سريعة وحديثة ومستجيبة باستخدام بنية المكونات في رياكت."
+                },
+                {
+                    name: "جانغو",
+                    duration: "6 أسابيع",
+                    price: "120 ريال عماني",
+                    description: "تطوير تطبيقات ويب كاملة مكدسة آمنة وقابلة للتطوير باستخدام بايثون وإطار جانغو."
+                },
+                {
+                    name: "ماي إس كيو إل",
+                    duration: "3 أسابيع",
+                    price: "80 ريال عماني",
+                    description: "تعلم كيفية تخزين واسترداد وإدارة البيانات باستخدام SQL في أنظمة قواعد البيانات الواقعية."
+                },
+                {
+                    name: "لغة سي",
+                    duration: "4 أسابيع",
+                    price: "50 ريال عماني",
+                    description: "يشمل مفاهيم البرمجة الأساسية للغة سي"
+                },
+                {
+                    name: "إتش تي إم إل وسي إس إس",
+                    duration: "6 أسابيع",
+                    price: "80 ريال عماني",
+                    description: "يغطي HTML و CSS مع التعلم القائم على المشاريع."
+                },
+                {
+                    name: "سي بلس بلس",
+                    duration: "6 أسابيع",
+                    price: "70 ريال عماني",
+                    description: "مقدمة في C++، الدوال ومفاهيم البرمجة الكائنية التوجه."
+                },
+                {
+                    name: "جافا",
+                    duration: "6 أسابيع",
+                    price: "100 ريال عماني",
+                    description: "بناء تطبيقات قابلة للتطوير باستخدام جافا، مع التركيز على البرمجة الكائنية التوجه وهياكل البيانات والتعلم القائم على المشاريع."
+                },
+                {
+                    name: "بايثون",
+                    duration: "6 أسابيع",
+                    price: "80 ريال عماني",
+                    description: "ابدأ البرمجة باستخدام بايثون - مثالي للمبتدئين والتعامل الأساسي مع البيانات."
+                },
+                {
+                    name: "بايثون متقدم",
+                    duration: "8 أسابيع",
+                    price: "120 ريال عماني",
+                    description: "الغوص العميق في بايثون مع مشاريع واقعية ومفاهيم متقدمة."
+                }
+            ]
+        };
+
+        // Language Switching Functionality
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const body = document.querySelector('body');
+        let currentLang = 'en';
+        
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Change language
+                currentLang = button.dataset.lang;
+                updateContent(currentLang);
+            });
+        });
+
+        // Function to update content based on language
+        function updateContent(lang) {
+            // Change language direction
+            if (lang === 'ar') {
+                body.classList.add('rtl');
+                document.documentElement.lang = 'ar';
+                document.title = 'حلول N&N للذكاء الاصطناعي - تحويل الأعمال باستخدام الذكاء الاصطناعي';
+            } else {
+                body.classList.remove('rtl');
+                document.documentElement.lang = 'en';
+                document.title = 'N&N AI Solutions - Transforming Businesses with AI';
+            }
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Render courses
+            renderCourses(lang);
+        }
+
+        // Function to render courses
+        function renderCourses(lang) {
+            const coursesContainer = document.getElementById('courses-container');
+            const footerCourses = document.getElementById('footer-courses');
+            
+            // Clear existing courses
+            coursesContainer.innerHTML = '';
+            footerCourses.innerHTML = '';
+            
+            // Add courses to main section
+            courses[lang].forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'course-card';
+                courseCard.innerHTML = `
+                    <div class="course-header">
+                        <h3 class="course-title">${course.name}</h3>
+                        <div class="course-meta">
+                            <div class="course-duration">
+                                <i class="far fa-clock"></i>
+                                <span>${course.duration}</span>
+                            </div>
+                            <div class="course-price">
+                                <i class="fas fa-tag"></i>
+                                <span>${course.price}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p class="course-description">${course.description}</p>
+                        <a href="#contact" class="course-link" data-key="courses.enroll">Enroll Now</a>
+                    </div>
+                `;
+                coursesContainer.appendChild(courseCard);
+            });
+            
+            // Add top courses to footer
+            for (let i = 0; i < 4; i++) {
+                const course = courses[lang][i];
+                const courseItem = document.createElement('li');
+                courseItem.innerHTML = `<a href="#courses">${course.name}</a>`;
+                footerCourses.appendChild(courseItem);
+            }
+            
+            // Update "Enroll Now" button text
+            document.querySelectorAll('.course-link[data-key="courses.enroll"]').forEach(btn => {
+                btn.textContent = lang === 'en' ? 'Enroll Now' : 'سجل الآن';
+            });
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'white';
+            }
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render courses on initial load
+            renderCourses(currentLang);
+            
+            // Update enroll button text
+            document.querySelectorAll('.course-link[data-key="courses.enroll"]').forEach(btn => {
+                btn.textContent = 'Enroll Now';
+            });
+        });
+    </script>
+</body>
+</html>
